@@ -17,23 +17,52 @@ cách code phổ biến của hầu hết tất cả những người mới họ
 
  :one: Pure function (hàm thuần)
  
- ✅ Cùng input luôn cho ra cùng output
+Hàm thuần:
 
- ✅ Không làm thay đổi gì bên ngoài
+- Không sửa biến ngoài
+
+- Không in ra
+
+- Không đọc input
+
+- Chỉ: input → output
 
  :two: Immutability (dữ liệu không bị sửa)
 
- Vấn đề quan trọng trong FP chính là việc tạo dữ liệu mới thay vì sửa dữ liệu cũ
+Dữ liệu:
 
- :three: Hàm là dữ liệu
+- tạo xong là không sửa
 
- Hàm có thể được truyền vào như biến
+- muốn thay đổi → tạo bản mới
+
+👉 Tránh bug do “ai đó sửa dữ liệu của mình”
+
+ :three: Higher-Order Functions → Functions as first-class values
+
+Hàm có thể:
+
+- truyền làm tham số
+
+- trả về từ hàm khác
+
+- gán vào biến
 
  ```
 int apply(int x, int (*f)(int)) {
     return f(x);
 }
 ```
+
+:four: Recursion replaces loops
+
+Trong FP “thuần”:
+
+- không dùng `for`, `while`
+
+- dùng đệ quy
+
+👉 vì loop thường đi kèm biến thay đổi (mutable state)
+
 ### Vậy FP khác với Imperative ở điểm nào?
 
 Sự khác biệt nằm ở cấu trúc và cách mà nó xử lý trạng thái
@@ -57,3 +86,9 @@ int sumToN(int n) {
 }
 ```
 👉 FP sẽ mô tả quan hệ toán học: n → kết quả; không có trạng thái thay đổi
+
+#### 📌 Kết luận:
+
+Imperative programming tập trung vào cách làm, dựa trên trạng thái và bộ nhớ dùng chung, nên gặp khó khăn khi song song hóa.
+
+Functional programming là một dạng declarative programming, tập trung vào kết quả, dùng hàm thuần và dữ liệu bất biến, từ đó giảm bottleneck và hỗ trợ parallelism tốt hơn.
